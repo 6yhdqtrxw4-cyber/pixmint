@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>PixMint — Convert HEIC, WebP, PNG & JPG Online, Free, No Upload</title>
+<meta name="description" content="Convert HEIC to JPG, WebP to PNG and more — entirely in your browser. 100% private: photos never leave your device. Free, no sign-up, no watermark."/>
+<meta name="keywords" content="heic to jpg, webp to png, webp to jpg, heic converter online free, image converter no upload"/>
+<style>
+  :root { --accent:#f59e0b; --bg:#0f172a; --panel:#1e293b; --text:#e2e8f0; --muted:#94a3b8; --border:#334155; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+  .wrap { max-width:860px; margin:0 auto; padding:24px 20px; }
+  header { display:flex; align-items:center; gap:10px; margin-bottom:28px; }
+  .logo { font-size:22px; font-weight:800; } .logo em { color:var(--accent); font-style:normal; }
+  .badge { font-size:11.5px; background:rgba(245,158,11,.15); color:var(--accent); padding:3px 10px; border-radius:999px; font-weight:600; }
+  h1 { font-size:26px; margin-bottom:6px; }
+  .sub { color:var(--muted); font-size:14.5px; margin-bottom:24px; }
+  .panel { background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:26px; }
+  .drop { border:2px dashed var(--border); border-radius:12px; padding:38px 20px; text-align:center; cursor:pointer; transition:.2s; }
+  .drop:hover, .drop.over { border-color:var(--accent); background:rgba(245,158,11,.05); }
+  .drop .big { font-size:34px; margin-bottom:8px; }
+  .drop p { color:var(--muted); font-size:14px; }
+  input[type=file] { display:none; }
+  .filelist { margin-top:14px; }
+  .fileitem { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--bg); border:1px solid var(--border); border-radius:10px; margin-bottom:8px; font-size:13.5px; }
+  .fileitem .name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .fileitem .st { font-size:13px; }
+  .fileitem .rm { cursor:pointer; color:#f87171; font-weight:700; }
+  .row { display:flex; gap:14px; margin-top:18px; flex-wrap:wrap; }
+  .col { flex:1; min-width:200px; }
+  label { display:block; font-size:13.5px; color:var(--muted); margin-bottom:8px; }
+  select, input[type=range] { width:100%; padding:11px 14px; border-radius:10px; border:1px solid var(--border); background:var(--bg); color:var(--text); font-size:14px; }
+  .btn { width:100%; margin-top:20px; padding:14px; border:none; border-radius:10px; background:var(--accent); color:#451a03; font-size:15.5px; font-weight:800; cursor:pointer; }
+  .btn:disabled { opacity:.4; cursor:not-allowed; }
+  .note { font-size:12.5px; color:var(--muted); margin-top:10px; text-align:center; }
+  #msg { margin-top:14px; font-size:14px; text-align:center; min-height:20px; }
+  .ok { color:#34d399; } .err { color:#f87171; }
+  footer { text-align:center; color:var(--muted); font-size:12.5px; margin-top:36px; }
+  footer a { color:var(--accent); text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">Pix<em>Mint</em></div>
+    <div class="badge">🔒 100% on-device · no upload</div>
+  </header>
+
+  <h1>Convert image formats</h1>
+  <p class="sub">HEIC → JPG, WebP → PNG and more — free, no sign-up, no watermark. Your photos never leave this browser tab.</p>
+
+  <div class="panel">
+    <div class="drop" id="drop">
+      <div class="big">🖼️</div>
+      <p><strong>Drop images here</strong> or click to browse — HEIC, HEIF, WebP, PNG, JPG, GIF, BMP</p>
+      <input type="file" id="file" accept="image/*,.heic,.heif" multiple/>
+    </div>
+    <div class="filelist" id="filelist"></div>
+
+    <div class="row">
+      <div class="col">
+        <label>Convert to</label>
+        <select id="outfmt">
+          <option value="jpg" selected>JPG</option>
+          <option value="png">PNG</option>
+          <option value="webp">WebP</option>
+        </select>
+      </div>
+      <div class="col" id="q-wrap">
+        <label>Quality: <span id="qval">92%</span></label>
+        <input type="range" id="quality" min="0.1" max="1" step="0.01" value="0.92"/>
+      </div>
+    </div>
+
+    <button class="btn" id="go" disabled>Convert → Download</button>
+    <div id="msg"></div>
+    <p class="note">HEIC decoding runs on a WebAssembly build of libheif (heic2any, MIT) · everything else uses your browser's native codecs · works offline once loaded</p>
+  </div>
+
+  <footer>PixMint v0.1 — privacy-first image tools · <a href="./heic-to-jpg.html">HEIC to JPG</a> · <a href="./webp-to-png.html">WebP to PNG</a> · <a href="./webp-to-jpg.html">WebP to JPG</a></footer>
+</div>
+<script src="vendor/heic2any.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

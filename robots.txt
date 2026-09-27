@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://6yhdqtrxw4-cyber.github.io/pixmint/sitemap.xml
