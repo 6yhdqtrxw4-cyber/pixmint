@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>How to Convert HEIC to JPG Without Uploading Your Photos (2026 Guide) — PixMint Blog</title>
+<meta name="description" content="Three ways to convert iPhone HEIC photos to JPG — and why the browser-based, no-upload method is the only one that doesn't hand your photos to a stranger's server. Step-by-step guide."/>
+<link rel="canonical" href="./how-to-convert-heic-to-jpg-without-uploading.html"/>
+<style>
+  :root{--accent:#f59e0b;--bg:#0f172a;--panel:#1e293b;--text:#e2e8f0;--muted:#94a3b8;--border:#334155}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+  .wrap{max-width:720px;margin:0 auto;padding:28px 20px}
+  .crumb{color:var(--muted);font-size:13px}
+  .crumb a{color:var(--accent);text-decoration:none}
+  h1{font-size:29px;margin:14px 0 8px;line-height:1.3}
+  .meta{color:var(--muted);font-size:13.5px;margin-bottom:24px}
+  h2{font-size:21px;margin:32px 0 12px}
+  h3{font-size:17px;margin:22px 0 8px}
+  p,li{color:#cbd5e1;font-size:15.5px}
+  p{margin:12px 0}
+  ul,ol{padding-left:24px;margin:10px 0}
+  li{margin:7px 0}
+  a{color:var(--accent)}
+  a.cta{display:inline-block;padding:13px 32px;border-radius:10px;background:var(--accent);color:#451a03;font-weight:800;font-size:15.5px;text-decoration:none;margin:14px 0}
+  table{width:100%;border-collapse:collapse;margin:16px 0;font-size:14px}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left}
+  th{background:var(--panel)}
+  blockquote{border-left:3px solid var(--accent);padding:8px 16px;margin:16px 0;color:var(--muted);background:rgba(245,158,11,.06)}
+  footer{margin-top:44px;color:var(--muted);font-size:13px;border-top:1px solid var(--border);padding-top:18px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <p class="crumb"><a href="./index.html">PixMint</a> → Blog</p>
+  <h1>How to Convert HEIC to JPG Without Uploading Your Photos</h1>
+  <p class="meta">2026-09-29 · 6 min read · PixMint Blog</p>
+
+  <p>If you own an iPhone, your photos are probably HEIC. If you've ever tried to open them on a Windows PC, attach them to a form, or send them to a print shop, you already know the problem: half the world still can't read HEIC. So you search "heic to jpg" — along with roughly 246,000 other people every month in the US alone — and land on a converter site.</p>
+
+  <p>Here's the part most of those sites won't tell you: <strong>the moment you drop a photo on them, it gets uploaded to their server.</strong> Your kid's face, your ID scan, the GPS coordinates in the EXIF — all of it travels to a machine you don't control, under a privacy policy you didn't read.</p>
+
+  <p>This guide covers three ways to convert HEIC to JPG, what each one actually does with your photos, and how to do the whole thing without any upload at all.</p>
+
+  <h2>Option 1: Online converter sites (the privacy trap)</h2>
+  <p>The top results for "heic to jpg" are almost all server-side converters. The flow is always the same: upload → wait in a queue → download. It works, but consider what you're agreeing to:</p>
+  <ul>
+    <li>Your photos are stored — at least temporarily — on third-party infrastructure, often in another country</li>
+    <li>Free tiers usually cap you at a handful of files per day, or watermark the output</li>
+    <li>Batch conversions of a full camera roll are slow, because every megabyte has to make a round trip over the network</li>
+  </ul>
+  <p>For a meme, fine. For a photo of your passport? Think twice.</p>
+
+  <h2>Option 2: OS-level tools (safe, but clunky)</h2>
+  <h3>On Windows</h3>
+  <p>Microsoft's Photos app can open HEIC if you install the "HEIF Image Extensions" codec from the Microsoft Store, then export as JPG. It works offline and your photos stay put — but the codec sometimes costs a dollar, installs system-wide, and batch conversion is manual, file by file.</p>
+  <h3>On a Mac</h3>
+  <p>Preview opens HEIC natively: File → Export → Format: JPEG. Private and simple for one or two photos, but again, no real batch workflow.</p>
+
+  <h2>Option 3: Convert in your browser, no upload (recommended)</h2>
+  <p>Modern browsers are powerful enough to decode HEIC locally using WebAssembly. That's what <a href="./heic-to-jpg.html">PixMint's HEIC to JPG converter</a> does: it ships a WASM build of libheif (the same decoder operating systems use) to your browser tab, and the conversion happens entirely on your device.</p>
+  <blockquote>You can verify the "no upload" claim yourself: load the page, turn off your Wi-Fi, and convert. It still works — because nothing was ever sent anywhere.</blockquote>
+  <p>Step by step:</p>
+  <ol>
+    <li>Open <a href="./index.html?to=jpg">PixMint</a> (bookmark it — it works offline after first load)</li>
+    <li>Drop your .heic files in — a whole folder at once is fine</li>
+    <li>Keep JPG as the output, set quality (92% is visually lossless for most photos)</li>
+    <li>Press Convert → Download. Each photo saves as a .jpg, original untouched</li>
+  </ol>
+
+  <h2>One honest caveat: the file-size tax</h2>
+  <p>HEIC is roughly half the size of an equivalent JPG — that's exactly why Apple chose it. Independent benchmarks put a quality-matched JPG at about <strong>2x the HEIC file size</strong>, and a lossless PNG at nearly 5x. So convert for compatibility, not by default: keep your archive in HEIC, and convert the copies you actually need to send, print, or upload.</p>
+
+  <h2>The bottom line</h2>
+  <p>HEIC to JPG is a solved problem — the real question is who gets to see your photos along the way. Server-side converters: everyone. OS tools: nobody, but tedious. A browser-based, on-device converter gives you the convenience of the former with the privacy of the latter.</p>
+
+  <a class="cta" href="./heic-to-jpg.html">Convert HEIC to JPG now — free, no upload →</a>
+
+  <footer>
+    <p>Related: <a href="./heic-to-png.html">HEIC to PNG (lossless)</a> · <a href="./webp-to-jpg.html">WebP to JPG</a> · <a href="./webp-to-png.html">WebP to PNG</a></p>
+    <p>© PixMint — privacy-first image tools</p>
+  </footer>
+</div>
+</body>
+</html>
